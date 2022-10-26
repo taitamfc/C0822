@@ -1,0 +1,73 @@
+<script>
+    /*
+    let ClassName = function() {
+        // thuoc tinh
+        this.property_1 = '';
+        this.property_2 = '';
+
+        // phuong thuc
+        this.method_1 = function () {
+            
+        }
+        this.method_2 = function () {
+            
+        }
+    }
+    */
+    //lop Student co phuong thuc khoi tao co 3 tham so
+    let Student = function(ts_name,ts_age,ts_gender) {
+        // thuoc tinh
+        this.name   = ts_name;
+        this.age    = ts_age;
+        this.gender = ts_gender;
+
+        // phuong thuc thiet lap gia tri thuoc tinh
+        this.setName = function( ts_name ){
+            this.name = ts_name;
+        }
+        this.setAge = function( ts_age ){
+            this.age = ts_age;
+        }
+        this.setGender = function( ts_gender ){
+            this.gender = ts_gender;
+        }
+        //phuong thuc tra ve gia tri thuoc tinh
+        this.getName = function(){
+            return this.name
+        }
+        this.getAge = function(){
+            return this.age
+        }
+        this.getGender = function(){
+            return this.gender
+        }
+    }
+    // - khoi tao doi tuong: truyen 3 doi so
+    let objToan     = new Student('Truong',19,'male');
+    let objVy       = new Student('Vy',18,'female');
+    console.log(objToan);
+    console.log(objVy);
+
+    // // thiet lap gia tri thuoc tinh cho doi tuong Toan
+    // objToan.name    = 'Toan';
+    // objToan.age     = 18;
+    // objToan.gender = 'male';
+    // // - truy cap phuong thuc
+    // objToan.setName('Van Toan');
+    // objToan.setAge(19);
+    // objToan.setGender('male');
+
+    // console.log( objToan.getName() );
+    // console.log( objToan.getAge() );
+    // console.log( objToan.getGender() );
+
+    // // truy cap gia tri thuoc tinh
+    // console.log( objToan.name );
+    // console.log( objToan.age );
+    // console.log( objToan.gender );
+
+
+
+
+
+</script>

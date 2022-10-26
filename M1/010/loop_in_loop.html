@@ -1,0 +1,38 @@
+<script>
+    var dem = 0;
+    for( var i = 2; i <= 9; i ++ ){
+        // console.log('i: ' + i);
+        /*
+        i: 2
+            j: 1
+            j: 2
+            j: 3
+            ...
+            j: 10
+        i: 3
+            j: 1
+            j: 2
+            j: 3
+            ...
+            j: 10
+        ...
+        i: 9
+            j: 1
+            j: 2
+            j: 3
+            ...
+            j: 10
+        */
+        
+        for( var j = 1; j <= 10; j ++ ){
+            // 2 x 1 = 2
+            console.log(i + ' x ' + j + ' = ' + (i*j) );
+            dem++;
+        }
+        console.log('====================');
+        
+    }
+
+    console.log(dem);
+
+</script>

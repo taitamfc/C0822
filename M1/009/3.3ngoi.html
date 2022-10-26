@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Điều kiện ? thực hiện khi đúng : thực hiện khi sai
+        */
+
+        /*
+        biến = Biểu thức logic ? Câu lệnh khi biểu thức trả về true : Câu lệnh khi biếu thức trả về false;
+        */
+        //trường xử lý dựa vào điều kiện
+        var yearold = 18;
+        if( yearold >= 18 ){
+            console.log('Uong bia');
+        }else{
+            console.log('Uong nc ngot');
+        }
+
+        // xử lý
+        (yearold >= 18) ? console.log('Uong bia') : console.log('Uong nc ngot')
+        
+        //trường hợp gán biến dựa vào điều kiện
+        var username = 'admin';
+        var msg = '';
+        if( username == 'admin' ){
+            msg = 'Chao admin';
+        }else{
+            msg = 'Chao thành viên';
+        }
+
+        //gán biến
+        msg = (username == 'admin') ? 'Chao admin' : 'Chao thành viên';
+
+
+        console.log(msg);//
+    </script>
+</body>
+</html>

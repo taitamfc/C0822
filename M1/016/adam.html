@@ -1,0 +1,24 @@
+<script>
+    let Apple = function(){
+        this.weight = 10;
+
+        this.giam_trong_luong = function(){
+            this.weight--;
+        }
+    };
+
+    let Human = function(){
+        this.an_tao = function(dt_qua_tao){
+            //ts_Apple: doi tuong Apple 
+            dt_qua_tao.giam_trong_luong();
+        }
+    };
+
+    let qua_tao = new Apple();
+    let adam = new Human();
+    // truyen doi tuong Apple
+    adam.an_tao( qua_tao );
+
+    let eva  = new Human();
+    
+</script>

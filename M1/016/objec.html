@@ -1,0 +1,84 @@
+<script>
+    /*
+        var objectName = { 
+            property_1 : value 1, 
+            property_2 : value 2, 
+            method_1 : function(){
+
+            }, 
+            method_2 : function(){
+                
+            }
+        };
+
+        objectName  : ten doi tuong
+        property1   : thuoc tinh 1
+        value1      : gia tri thuoc tinh 1
+        property2   : thuoc tinh 2
+        value2      : gia tri thuoc tinh 2
+        method_1    : phuong thuc 1
+        method_2    : phuong thuc 2
+    */
+
+    var objTruong = { 
+        name : 'Truong', 
+        age : 19, 
+        gender : 'male',
+        learning : function(){
+            console.log('Learning');
+        },
+        working : function(){
+            console.log('working');
+        },
+        saying : function( message ){
+            return message;
+        }
+    };
+
+    var objToan = { 
+        name : 'Toan', 
+        age : 18, 
+        gender : 'male',
+        learning : function(){
+            console.log('Learning');
+        },
+        working : function(){
+            console.log('working');
+        },
+        saying : function( message ){
+            return message;
+        }
+    };
+
+    var objVy = { 
+        name : 'Vy', 
+        age : 18, 
+        gender : 'female',
+        learning : function(){
+            console.log('Learning');
+        },
+        working : function(){
+            console.log('working');
+        },
+        saying : function( message ){
+            return message;
+        }
+    };
+
+
+    console.log(objTruong);
+    // truy cap thuoc tinh
+    console.log( objTruong.name );
+    
+    // truy cap phuong thuc
+    objTruong.learning();
+    objTruong.working();
+    console.log( objTruong.saying('Hello') );
+
+
+    
+
+    
+
+   
+</script>

@@ -1,0 +1,54 @@
+<script>
+    class Mobile{
+        // phuong thuc khoi tao
+        constructor( ts_name ){
+            // thuoc tinh
+            this.name           = ts_name;
+            this.tinh_trang     = false;
+            this.muc_pin        = 100;
+            this.tin_dang_soan  = '';
+            this.hop_thu_den    = [];
+            this.hop_thu_di     = [];
+        }
+
+        //phuong thuc
+        bat_dien_thoai(){
+            this.tinh_trang = true;
+        }
+        tat_dien_thoai(){
+            this.tinh_trang = false;
+        }
+        sac_pin(){
+            this.muc_pin++
+        }
+        soan_tin_nhan(noi_dung){
+            this.tin_dang_soan = noi_dung;
+        }
+        nhan_tin_nhan( noi_dung ){
+            this.hop_thu_den.push(noi_dung)
+        }
+        gui_tin_nhan( Mobile ){
+            this.muc_pin--;
+            Mobile.nhan_tin_nhan( this.tin_dang_soan );
+        }
+        xem_hop_thu_den(){
+            console.log( this.hop_thu_den );
+        }
+        xem_hop_thu_di(){
+            console.log( this.hop_thu_di );
+        }
+    }
+
+    let Nokia   = new Mobile('Nokia');
+    let Iphone  = new Mobile('Iphone');
+
+    Nokia.bat_dien_thoai();
+    Nokia.soan_tin_nhan('Xin chao Iphone');
+    Nokia.gui_tin_nhan( Iphone )
+    console.log(Nokia);
+
+    Iphone.bat_dien_thoai();
+    console.log(Iphone);
+
+
+</script>

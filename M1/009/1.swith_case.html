@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        switch(biểu thức) {
+            case giá trị 1:
+                // khối lệnh sẽ được thực thi
+                break;
+            case giá trị 2:
+                // khối lệnh sẽ được thực thi
+                break;
+            default:
+                // khối lệnh mặc định sẽ được thực thi nếu không chọn được trường hợp nào
+        }
+        */
+
+        var day = 5;
+        if( day == 2 || day == 3|| day == 4|| day == 5|| day == 6  ){
+            console.log('Di lam');
+        }else if( day == 7 ){
+            console.log('Sinh hoat CLB');
+        }else{
+            console.log('Relax');
+        }
+
+        switch (day) {//if day
+            case 2: //day == 2
+            case 3: //|| day == 3
+            case 4: //|| day == 4
+            case 5: //|| day == 5
+            case 6: //|| day == 6
+                console.log('Di lam');
+                break;
+            case 7: //day == 7
+                console.log('Sinh hoat CLB');
+                break;
+            default: //nguoc lai
+                console.log('Relax');
+                break;
+        }
+
+        /*
+        input month
+        neu month = 1: in ra co 31 ngay
+        neu month = 2: in ra co 28 hoac 29 ngay
+        neu month = 4: in ra 30 ngay
+        nguoc lai: in ra khong xac dinh
+        */
+        
+    </script>
+</body>
+</html>
