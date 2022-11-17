@@ -37,6 +37,9 @@ class MatHangController {
     }
     //trang xoa
     public function delete(){
-
+        $id = $_REQUEST['id'];
+        $objMatHang = new MatHang();
+        $objMatHang->delete($id);
+        header("Location: index.php?page=list");
     }
 }
