@@ -23,7 +23,17 @@ class MatHangController {
     }
     //trang chinh sua
     public function edit(){
+        $id = $_REQUEST['id'];
+        $objMatHang = new MatHang();
+        $row = $objMatHang->find( $id );
 
+        // xu ly khi gui du lieu
+        if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
+            $objMatHang->update($id,$_REQUEST);
+            header("Location: index.php?page=list");
+        }
+
+        include_once 'views/mathang/edit.php';
     }
     //trang xoa
     public function delete(){

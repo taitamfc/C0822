@@ -15,8 +15,8 @@
                 <td><?= $row->TENHANG ;?></td>
                 <td><?= $row->MACONGTY ;?></td>
                 <td>
-                    <a href="edit.php?id=<?= $row->MAHANG ;?>">Edit</a> <br>
-                    <a href="delete.php?id=<?= $row->MAHANG ;?>">Delete</a>
+                    <a href="index.php?page=edit&id=<?= $row->MAHANG ;?>">Edit</a> <br>
+                    <a href="delete.php?page=delete&id=<?= $row->MAHANG ;?>">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>

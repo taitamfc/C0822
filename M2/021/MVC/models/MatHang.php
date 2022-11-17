@@ -29,7 +29,7 @@
             ('$TENHANG', $MACONGTY) ";
             $conn->exec($sql);
         }
-        //xu ly them moi
+        //xu ly cap nhat
         public function update( $id, $data ){
             global $conn;
             $TENHANG = $data['TENHANG'];
