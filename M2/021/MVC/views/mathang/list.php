@@ -1,4 +1,4 @@
-<a href="add.php"> Thêm mới </a>
+<a href="index.php?page=add"> Thêm mới </a>
 <table border="1">
     <thead>
         <tr>
