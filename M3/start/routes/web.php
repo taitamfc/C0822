@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PhotoController;
+use App\Models\Product;
+use App\Models\Order;
+use App\Models\Category;
+use App\Models\ProductCode;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +42,35 @@ Route::get('link_vip/{age}',function($age){
 
 Route::get('link_normal',function(){
     echo 'Trang Link Binh Thuong';
+});
+
+
+Route::get('hasOne',function(){
+    $item = Product::find(1);//select * from products where id = 1
+    dd($item->product_code);//select * from product_codes where product_id = 1
+});
+
+Route::get('hasOneInverse',function(){
+    $item = ProductCode::find(1);
+    dd($item->product);
+});
+
+Route::get('hasMany',function(){
+    $item = Category::find(1);
+    dd($item->products->toArray());
+});
+
+Route::get('hasInverse',function(){
+    $item = Product::find(2);
+    dd($item->category->toArray());
+});
+
+Route::get('manyManyProducts',function(){
+    $item = Product::find(1);
+    dd($item->orders->toArray());
+});
+
+Route::get('manyManyOrders',function(){
+    $item = Order::find(1);
+    dd($item->products->toArray());
 });
