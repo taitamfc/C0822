@@ -19,20 +19,24 @@ use App\Models\ProductCode;
 |
 */
 
-Route::prefix('products')->group(function () {
-    Route::get('/', [ProductController::class, 'index'])->name('products.index');
-    Route::get('/create', [ProductController::class, 'create'])->name('products.create');
-    Route::get('/{id}', [ProductController::class, 'show'])->name('products.show');
-    Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::post('/', [ProductController::class, 'stote'])->name('products.stote');
-    Route::put('/{id}', [ProductController::class, 'update'])->name('products.update');
-    Route::delete('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
-});
+// Route::prefix('products')->group(function () {
+//     Route::get('/', [ProductController::class, 'index'])->name('products.index');
+//     Route::get('/create', [ProductController::class, 'create'])->name('products.create');
+//     Route::get('/{id}', [ProductController::class, 'show'])->name('products.show');
+//     Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+//     Route::post('/', [ProductController::class, 'stote'])->name('products.stote');
+//     Route::put('/{id}', [ProductController::class, 'update'])->name('products.update');
+//     Route::delete('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+// });
 
 // products/create
 
 // photos
-Route::resource('photos',PhotoController::class);
+Route::prefix('admin')->group(function () {
+    Route::resource('photos',PhotoController::class);
+    Route::resource('products',ProductController::class);
+});
+
 // /photos/create
 
 

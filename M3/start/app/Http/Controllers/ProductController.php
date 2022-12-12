@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\Category;
+use App\Http\Requests\StoreProductRequest;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,39 @@ class ProductController extends Controller
         ];
         return view('admin.products.create',$params);
     }
-    public function store(Request $request ){
+    public function store(StoreProductRequest $request ){
+        // Validation
+        // $validated = $request->validate([
+        //     'name' => 'required|unique:products|max:255',
+        //     'price' => 'required',
+        //     'description' => 'required|min:3',
+        // ],[
+        //     'name.required'=> 'vui long nhap ten',
+        //     'name.unique'=> 'ten da ton tai ',
+        //     'name.max'=>'ten qua dai',
+        //     'price.required'=>'vui long nhap gia',
+        //     'description.required'=>'vui long nhap mo ta',
+        //     'description.min'=> 'mo ta qua ngan'
+        // ]);
+        // $validator = Validator::make($request->all(), [
+        //     'name' => 'required|unique:products|max:255',
+        //     'price' => 'required',
+        //     'description' => 'required|min:3',
+        // ],[
+        //     'name.required'=> 'vui long nhap ten',
+        //     'name.unique'=> 'ten da ton tai ',
+        //     'name.max'=>'ten qua dai',
+        //     'price.required'=>'vui long nhap gia',
+        //     'description.required'=>'vui long nhap mo ta',
+        //     'description.min'=> 'mo ta qua ngan'
+        // ]);
+        // if ($validator->fails()) {
+        //     return redirect()->route('products.create')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
+
+        // Luu
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
