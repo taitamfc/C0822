@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\Category;
 use App\Http\Requests\StoreProductRequest;
+use Illuminate\Support\Facades\Log;
 
 class ProductController extends Controller
 {
@@ -14,7 +15,11 @@ class ProductController extends Controller
     //    $items = Product::all();
         $items = DB::table('products')->get();
         // select * from products
-        dd($items);
+        // dd($items);
+        $params = [
+            'items' => $items
+        ];
+        return view('admin.products.index',$items);
     }
     public function create(){
         $categories = Category::all();
@@ -24,7 +29,7 @@ class ProductController extends Controller
         return view('admin.products.create',$params);
     }
     public function store(StoreProductRequest $request ){
-        // Validation
+        // Validation cach 1
         // $validated = $request->validate([
         //     'name' => 'required|unique:products|max:255',
         //     'price' => 'required',
@@ -37,6 +42,8 @@ class ProductController extends Controller
         //     'description.required'=>'vui long nhap mo ta',
         //     'description.min'=> 'mo ta qua ngan'
         // ]);
+
+        // Validation cach 2
         // $validator = Validator::make($request->all(), [
         //     'name' => 'required|unique:products|max:255',
         //     'price' => 'required',
@@ -59,9 +66,17 @@ class ProductController extends Controller
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
-        $product->save();
+        $product->category_id = $request->category_id;
+        $product->image = 'images/iphone-14.png';
 
-        return redirect()->route('products.index');
+        try {
+            $product->save();//throw new Exection('Co loi xay ra');
+        } catch (\Exception $e) {
+            // Logic khi sai
+            Log::error($e->getMessage());
+            return redirect()->route('products.create')->with('error','Da co loi xay ra');
+        }
+        return redirect()->route('products.index')->with('success','Luu thanh cong');
     }
     public function show($id){
         $item = Product::find($id);

@@ -1,6 +1,11 @@
 @extends('admin.layouts.main')
 
 @section('content')
+@if (Session::has('error'))
+    <p class="text-danger">
+        <i class="fa fa-check" aria-hidden="true"></i>{{ Session::get('error') }}
+    </p>
+@endif
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
