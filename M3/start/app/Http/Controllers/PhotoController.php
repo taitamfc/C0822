@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 
 class PhotoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        // Luu session
+        $request->session()->put('ho_va_ten', 'Nguyen Van A');
+
         $email      = 'a@gmail.com';
 
         // return view('photos.index')->with('ho_va_ten',$ho_va_ten)->with('email',$email);
@@ -16,7 +19,6 @@ class PhotoController extends Controller
         //     'email' => $email,
         // ];
         // return view('photos.index', $params);
-
         return view('admin.photos.index',compact('email'));
     }
     public function create()
