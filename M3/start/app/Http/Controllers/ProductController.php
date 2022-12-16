@@ -74,9 +74,9 @@ class ProductController extends Controller
         } catch (\Exception $e) {
             // Logic khi sai
             Log::error($e->getMessage());
-            return redirect()->route('products.create')->with('error','Da co loi xay ra');
+            return redirect()->route('products.create')->with('error',__('messages.save_error'));
         }
-        return redirect()->route('products.index')->with('success','Luu thanh cong');
+        return redirect()->route('products.index')->with('success', __('messages.save_ok') );
     }
     public function show($id){
         $item = Product::find($id);

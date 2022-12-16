@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Order;
 use App\Models\Category;
 use App\Models\ProductCode;
+use Illuminate\Support\Facades\App;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -126,3 +127,22 @@ Route::get('gio_hang',function(Request $request){
     //dd($products);
 });
 //http://127.0.0.1:8000/gio_hang
+
+
+Route::get('test-lang',function(){
+    //lay session lang
+    $ss_locale = session()->get('lang');
+    if( $ss_locale ){
+        //thiet lap local le
+        App::setLocale($ss_locale);
+    }
+    echo __('messages.wellcome');
+});
+
+Route::get('change-lang/{locale}',function($locale){
+    //thiep lap session
+    session(['lang' => $locale]);
+
+    //chuyen huong
+    return redirect('/test-lang');
+});
