@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <select name="citySelect" class="form-control" id="citySelect">
+                    <option value="Select">Select</option>
+                    <option value="5128581">New York</option>
+                    <option value="5391959">San Francisco</option>
+                    <option value="2643743">London</option>
+                    <option value="1275339">Mumbai</option>
+                    <option value="8199396">Santa Lucia</option>
+                    <option value="1581130">Hanoi</option>
+                </select>
+            </div>
+            <div class="col-lg-12">
+                <div id="message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+    <script>
+        //Khi tất cả các html đã được load
+        jQuery( document ).ready( function(){
+            //lấy API KEY về để xài dịch vụ
+            const API_KEY = '80f6c46268a75f7bd430f586b5714fc5';
+            const API_URL = "http://api.openweathermap.org/data/2.5/weather";
+            // alert('123');
+            // Bắt sự kiện change của select
+            $('#citySelect').change( function(){
+                // Lấy value
+                let city = $(this).val();
+                // Kiểm tra người dùng chọn vào thành phố
+                if( city != 'Select' ){
+                    $.ajax({
+                        type: "POST",
+                        url: API_URL + "?id="+ city + "&appid="+API_KEY+"&units=metric",
+                        dataType: "json",
+                        success: function (result, status, xhr) {
+                            // Xem log
+                            console.log(result);
+                            // Đưa data vào bảng, tạo ra một table
+                            var table = $("<table><tr><th>Weather Description</th></tr>");
+                            table.append("<tr><td>City:</td><td>" + result["name"] + "</td></tr>");
+                            table.append("<tr><td>Country:</td><td>" + result["sys"]["country"] + "</td></tr>");
+                            table.append("<tr><td>Current Temperature:</td><td>" + result["main"]["temp"] + "°C</td></tr>");
+                            table.append("<tr><td>Humidity:</td><td>" + result["main"]["humidity"] + "</td></tr>");
+                            table.append("<tr><td>Weathers:</td><td>" + result["weather"][0]["description"] + "</td></tr>");
+                            // Đưa nội dung html vào thẻ có id=message
+                            $("#message").html(table);
+                        },
+                        error: function (xhr, status, error) {
+                            //Xử lý khi lỗi, giống như try catch
+                            alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    </body>
+</html>

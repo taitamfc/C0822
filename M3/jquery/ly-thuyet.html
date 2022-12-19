@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+</head>
+<body>
+    <script>
+        /*
+            $( selector ).method();
+            selector
+                tag     : $( 'tag' )
+                class   : $( '.class' )
+                id      : $( '#id' )
+            method
+                val() : trả về giá trị của ô input => .value
+                show()  : hiện phần tử
+                hide()  : ẩn phẩn tử
+                html()  : .innerHtml
+                text()  : .innerText
+                click() : bắt sự kiện onClick
+                change(): bắt sự kiện onChange
+        */
+    </script>
+    <form action="" method="get">
+        Username: <input type="text" name="username" id="username"> 
+        <p id="error_username" class="error"></p>
+        Password: <input type="password" name="password" id="password">
+        <p id="error_password" class="error"></p>
+        <input type="button" value="Login" id="login">
+    </form>
+    <p id="kq"></p>
+    <script>
+        $('#login').click( function(){
+            let username = $('#username').val();
+            let password = $('#password').val();
+            // Xoa noi dung cu
+            $('.error').text('');
+            if( username == '' ){
+                $('#error_username').text('Vui long nhap username')
+            }
+            if( password == '' ){
+                $('#error_password').text('Vui long nhap password')
+            }
+            if( username && password ){
+                let msg = 'Ten dang nhap la: ' + username;
+                msg += '<br> Mat khau la: ' + password;
+                $('#kq').html( msg );
+
+                let ajaxSetting = {
+                    url : 'ajax.php',
+                    method: 'POST',
+                    dataType: 'json',
+                    data : {
+                        username : username,
+                        password : password
+                    },
+                    success: function( res ){
+
+                    }
+                };
+                $.ajax( ajaxSetting );
+            }
+        } );
+    </script>
+    
+</body>
+</html>
