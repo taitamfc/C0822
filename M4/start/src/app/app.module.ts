@@ -10,6 +10,7 @@ import { DEventComponent } from './d-event/d-event.component';
 import { ETwoWayComponent } from './e-two-way/e-two-way.component';
 import { CustomPipe } from './custom.pipe';
 import { ITemplateVariableComponent } from './i-template-variable/i-template-variable.component';
+import { KLifeCycleComponent } from './k-life-cycle/k-life-cycle.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ITemplateVariableComponent } from './i-template-variable/i-template-var
     DEventComponent,
     ETwoWayComponent,
     CustomPipe,
-    ITemplateVariableComponent
+    ITemplateVariableComponent,
+    KLifeCycleComponent
   ],
   imports: [
     BrowserModule,
