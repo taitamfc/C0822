@@ -11,6 +11,10 @@ import { ETwoWayComponent } from './e-two-way/e-two-way.component';
 import { CustomPipe } from './custom.pipe';
 import { ITemplateVariableComponent } from './i-template-variable/i-template-variable.component';
 import { KLifeCycleComponent } from './k-life-cycle/k-life-cycle.component';
+import { LInputComponent } from './l-input/l-input.component';
+import { UTemplateDrivenComponent } from './u-template-driven/u-template-driven.component';
+import { VDataDrivenComponent } from './v-data-driven/v-data-driven.component';
+import { ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,12 +26,16 @@ import { KLifeCycleComponent } from './k-life-cycle/k-life-cycle.component';
     ETwoWayComponent,
     CustomPipe,
     ITemplateVariableComponent,
-    KLifeCycleComponent
+    KLifeCycleComponent,
+    LInputComponent,
+    UTemplateDrivenComponent,
+    VDataDrivenComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

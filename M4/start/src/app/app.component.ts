@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'start';
+  appTitle = 'Xin chao cac ban';
+  books:any[] = ['Van','Su','Dia'];
+
+  appHandleClick(event:any){
+    alert('appHandleClick : ' + event);
+  }
 }
